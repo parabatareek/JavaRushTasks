@@ -17,11 +17,11 @@ public class Solution {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 9; j++) {
                 if (i < 8 && j == 3) System.out.print(hole);
-                else if (i == 8 && j == 3) System.out.print(robot);
-                else if (i == 9) System.out.print(bug);
+                else if (i == 8 && j == 3) System.out.print(hole);
+                else if (i == 9) System.out.print(death);
                 else System.out.print(land);
             }
-            if (i == 9) System.out.println(bug);
+            if (i == 9) System.out.println(death);
             else System.out.println(land);
         }
     }
