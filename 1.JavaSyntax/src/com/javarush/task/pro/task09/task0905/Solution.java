@@ -16,11 +16,23 @@ public class Solution {
 
     public static int toOctal(int decimalNumber) {
         //напишите тут ваш код
-        return 0;
+        int octal = 0, i = 0;
+        while (decimalNumber > 0){
+            octal += decimalNumber % 8 * Math.pow(10, i);
+            decimalNumber = decimalNumber / 8;
+            i++;
+        }
+        return octal;
     }
 
     public static int toDecimal(int octalNumber) {
         //напишите тут ваш код
-        return 0;
+        int decimal = 0, i = 0;
+        while (octalNumber > 0){
+            decimal += octalNumber % 10 * Math.pow(8, i);
+            octalNumber = octalNumber / 10;
+            i++;
+        }
+        return decimal;
     }
 }

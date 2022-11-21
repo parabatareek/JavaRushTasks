@@ -5,6 +5,7 @@ package com.javarush.task.pro.task09.task0921;
 */
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class NimrodAi {
     
@@ -25,6 +26,16 @@ public class NimrodAi {
 
     public static void replaceTarget(PastryLoader[] pastryLoaders) {
         //напишите тут ваш код
-
+        for (PastryLoader pastryLoader : pastryLoaders) {
+            for (String[][] memoryBank : pastryLoader.memory) {
+                for (String[] memoryCell : memoryBank) {
+                    for (int i = 0; i < memoryCell.length; i++) {
+                        if (memoryCell[i].toLowerCase().contains("nimrod")) {
+                            memoryCell[i] = memoryCell[i].toLowerCase().replaceAll("nimrod", "pirate ship");
+                        }
+                    }
+                }
+            }
+        }
     }
 }
