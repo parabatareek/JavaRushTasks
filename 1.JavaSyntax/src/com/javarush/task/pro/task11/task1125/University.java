@@ -27,8 +27,9 @@ public class University {
 
     public static void main(String[] args) {
         //напишите тут ваш код
-        addStudent("Максим Федоренко");
-        addStudent("Олег Кесарчук");
-        printStudents();
+        University university = new University();
+        university.addStudent("Максим Федоренко");
+        university.addStudent("Олег Кесарчук");
+        university.printStudents();
     }
 }
