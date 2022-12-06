@@ -4,10 +4,6 @@ package com.javarush.task.pro.task12.task1206;
 Анализ строк
 */
 
-import sun.security.util.ArrayUtil;
-
-import java.util.Arrays;
-
 public class Solution {
     public static void main(String[] args) {
         String string = "Думаю, это будет новой фичей." +
