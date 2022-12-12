@@ -19,21 +19,13 @@ public class Solution {
     }
 
     public static int[] getConnection(Planet planet) {
-        //напишите тут ваш код
-        int[] interfaces = new int[2];
-        interfaces[0] = -1;
-        interfaces[1] = -1;
         for (int i = 0; i < planet.stations.length; i++) {
-            Planet.OrbitalStation station = planet.stations[i];
-            for (int j = 0; j < station.controlSystem.getInterfacesNumber(); j++) {
-                Boolean connect = station.controlSystem.connect(j);
-                if (connect){
-                    interfaces[0] = i;
-                    interfaces[1] = j;
+            for (int j = 0; j < planet.stations[i].controlSystem.getInterfacesNumber(); j++) {
+                if (planet.stations[i].controlSystem.connect(j) == Boolean.TRUE) {
+                    return new int[]{i, j};
                 }
             }
         }
-        if (interfaces[0] == -1 && interfaces[1] == -1) return null;
-        else return interfaces;
+        return null;
     }
 }
