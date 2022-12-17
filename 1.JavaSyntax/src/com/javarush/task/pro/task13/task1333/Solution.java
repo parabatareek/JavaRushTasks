@@ -19,14 +19,20 @@ public class Solution {
 
     public static void changeNegativeNumbers() {
         //напишите тут ваш код
+        for (int i = 0; i < ratingsList.size(); i++) {
+            if (ratingsList.get(i) < 0 ) ratingsList.set(i, -ratingsList.get(i));
+        }
     }
 
     public static void changeZerosToMaximumNumber() {
         //напишите тут ваш код
+        Collections.replaceAll(ratingsList, 0, Collections.max(ratingsList));
     }
 
     public static void reverseList() {
         //напишите тут ваш код
+        Collections.sort(ratingsList);
+        Collections.reverse(ratingsList);
     }
 
     public static void improveRatings() {
