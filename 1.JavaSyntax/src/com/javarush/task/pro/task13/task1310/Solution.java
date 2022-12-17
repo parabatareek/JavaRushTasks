@@ -1,5 +1,6 @@
 package com.javarush.task.pro.task13.task1310;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 /* 
@@ -26,9 +27,19 @@ public class Solution {
 
     public static void printStudents() {
         //напишите тут ваш код
+        for (String student:
+             grades.keySet()) {
+            System.out.println(student);
+        }
     }
 
     public static Double getAverageMark() {
         //напишите тут ваш код
+        double sum = 0;
+        for (Double grade:
+             grades.values()) {
+            sum += grade;
+        }
+        return  sum / grades.values().size();
     }
 }
