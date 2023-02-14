@@ -30,6 +30,8 @@ public class Solution {
 
     public static Stream<Car> onlyElectricCars(ArrayList<Car> cars) {
         //напишите тут ваш код
-        return Stream.empty();
+        Stream<Car> stream = cars.stream()
+        .filter(car -> (car.isElectric()));
+        return stream;
     }
 }
