@@ -32,13 +32,11 @@ public class Solution {
     }
 
     public static Optional<Car> getMostExpensiveCar(Stream<Car> cars) {
-        //напишите тут ваш код
-        return cars.findAny();
+        return cars.max((car1, car2) -> car1.getPrice() - car2.getPrice());
     }
 
     public static Optional<Car> getMoreExpensiveCar(Stream<Car> cars, Car mostExpensiveCar) {
-        //напишите тут ваш код
-        return cars.max(((arg0, arg1) -> arg0.getPrice() - mostExpensiveCar.getPrice()));
+        return cars.filter(car -> car.getPrice() > mostExpensiveCar.getPrice()).findFirst();
     }
 }
 
