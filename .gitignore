@@ -4,6 +4,8 @@
 target/
 .idea/
 .idea
+.vscode/
+.vscode
 .repository/
 *.iml
 *.iws
