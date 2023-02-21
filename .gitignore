@@ -17,6 +17,7 @@ target/
 
 
 /out/
+/lib/javafx-sdk-18.0.1/src.zip
 /JavaRushPlugin.properties
 /Instruction.png
 /out.log
