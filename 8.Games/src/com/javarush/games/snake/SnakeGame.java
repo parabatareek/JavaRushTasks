@@ -3,6 +3,7 @@ package com.javarush.games.snake;
 import com.javarush.engine.cell.*;
 
 public class SnakeGame extends Game {
+    private Snake snake;
     public static final int WIDTH = 15,
             HEIGHT = 15;
 
@@ -13,6 +14,7 @@ public class SnakeGame extends Game {
     }
 
     private void createGame(){
+        snake = new Snake(WIDTH/2, HEIGHT/2);
         drawScene();
     }
 
@@ -22,5 +24,7 @@ public class SnakeGame extends Game {
                 setCellColor(i,j,Color.DARKSEAGREEN);
             }
         }
+
+        snake.draw(this);
     }
 }
