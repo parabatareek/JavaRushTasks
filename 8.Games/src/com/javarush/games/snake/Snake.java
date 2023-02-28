@@ -5,9 +5,9 @@ import com.javarush.engine.cell.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Snake{
+public class Snake {
 
-    public int x,y;
+    public int x, y;
     public boolean isAlive = true;
 
     private List<GameObject> snakeParts = new ArrayList<>();
@@ -23,9 +23,9 @@ public class Snake{
     public Snake(int x, int y) {
         this.x = x;
         this.y = y;
-        snakeParts.add(new GameObject(x,y));
-        snakeParts.add(new GameObject(x+1,y));
-        snakeParts.add(new GameObject(x+2,y));
+        snakeParts.add(new GameObject(x, y));
+        snakeParts.add(new GameObject(x + 1, y));
+        snakeParts.add(new GameObject(x + 2, y));
     }
 
     public void draw(Game game) {
@@ -34,13 +34,32 @@ public class Snake{
         for (int i = 0; i < snakeParts.size(); i++) {
             GameObject part = snakeParts.get(i);
 
-            String sign = (i!=0) ? BODY_SIGN:HEAD_SIGN;
+            String sign = (i != 0) ? BODY_SIGN : HEAD_SIGN;
 
             game.setCellValueEx(part.x, part.y, Color.NONE, sign, color, 75);
         }
     }
 
-    public void move(){
+    public void move() {
 
+    }
+
+    public GameObject createNewHead() {
+        GameObject head = snakeParts.get(0);
+
+        switch (direction) {
+            case LEFT:
+                return new GameObject(head.x - 1, head.y);
+            case RIGHT:
+                return new GameObject(head.x + 1, head.y);
+            case UP:
+                return new GameObject(head.x, head.y - 1);
+            default:
+                return new GameObject(head.x, head.y + 1);
+        }
+    }
+
+    public void removeTail() {
+        snakeParts.remove(snakeParts.size() -1);
     }
 }
