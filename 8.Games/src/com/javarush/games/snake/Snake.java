@@ -6,8 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Snake{
+
     public int x,y;
+    public boolean isAlive = true;
+
     private List<GameObject> snakeParts = new ArrayList<>();
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    private Direction direction = Direction.LEFT;
     private final static String HEAD_SIGN = "\uD83D\uDC7E",
             BODY_SIGN = "\u26AB";
 
@@ -19,12 +28,15 @@ public class Snake{
         snakeParts.add(new GameObject(x+2,y));
     }
 
-    public void draw(Game game){
-        GameObject gameObject;
+    public void draw(Game game) {
+        Color color = isAlive ? Color.BLACK : Color.RED;
+
         for (int i = 0; i < snakeParts.size(); i++) {
-            gameObject = snakeParts.get(i);
-            if (i ==0 ) game.setCellValue(gameObject.x, gameObject.y, HEAD_SIGN);
-            else game.setCellValue(gameObject.x, gameObject.y, BODY_SIGN);
+            GameObject part = snakeParts.get(i);
+
+            String sign = (i!=0) ? BODY_SIGN:HEAD_SIGN;
+
+            game.setCellValueEx(part.x, part.y, Color.NONE, sign, color, 75);
         }
     }
 }
