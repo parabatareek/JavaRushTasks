@@ -13,7 +13,12 @@ public class Snake {
     private List<GameObject> snakeParts = new ArrayList<>();
 
     public void setDirection(Direction direction) {
-        this.direction = direction;
+        if ((this.direction == Direction.LEFT && direction != Direction.RIGHT) ||
+                (this.direction == Direction.RIGHT && direction != Direction.LEFT) ||
+                (this.direction == Direction.UP && direction != Direction.DOWN) ||
+                (this.direction == Direction.DOWN && direction != Direction.UP)) {
+            this.direction = direction;
+        }
     }
 
     private Direction direction = Direction.LEFT;
@@ -70,6 +75,6 @@ public class Snake {
     }
 
     public void removeTail() {
-        snakeParts.remove(snakeParts.size() -1);
+        snakeParts.remove(snakeParts.size() - 1);
     }
 }

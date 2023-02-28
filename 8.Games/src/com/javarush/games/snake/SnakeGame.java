@@ -20,6 +20,19 @@ public class SnakeGame extends Game {
         drawScene();
     }
 
+    @Override
+    public void onKeyPress(Key key) {
+        if (key == Key.LEFT) {
+            snake.setDirection(Direction.LEFT);
+        } else if (key == Key.RIGHT) {
+            snake.setDirection(Direction.RIGHT);
+        } else if (key == Key.UP) {
+            snake.setDirection(Direction.UP);
+        } else if (key == Key.DOWN) {
+            snake.setDirection(Direction.DOWN);
+        }
+    }
+
     private void createGame(){
         snake = new Snake(WIDTH/2, HEIGHT/2);
         turnDelay = 300;
