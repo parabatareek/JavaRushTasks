@@ -16,8 +16,21 @@ public class Solution {
 
     public static String getObjectType(Object o) {
         //напишите тут ваш код
-
-        return "Животное";
+        //«Кот», «Тигр», «Лев», «Бык», «Корова», «Животное»
+        switch (o.getClass().getSimpleName()) {
+            case "Cat":
+                return "Кот";
+            case "Tiger":
+                return "Тигр";
+            case "Lion":
+                return "Лев";
+            case "Bull":
+                return "Бык";
+            case "Cow":
+                return "Корова";
+            default:
+                return "Животное";
+        }
     }
 
     public static class Cat extends Animal   //<--Классы наследуются!!

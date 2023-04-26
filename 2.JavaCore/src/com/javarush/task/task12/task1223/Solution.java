@@ -18,7 +18,7 @@ public class Solution {
         public Pet() {
         }
 
-        public final String getName() {
+        public String getName() {
             return name;
         }
 
@@ -30,5 +30,13 @@ public class Solution {
 
     public static class Cat extends Pet {
 
+        @Override
+        public void setName(String name) {
+            this.name = "";
+        }
+
+        public final String getName(){
+            return name;
+        }
     }
 }
