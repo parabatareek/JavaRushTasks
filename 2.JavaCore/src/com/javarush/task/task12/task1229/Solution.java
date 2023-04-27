@@ -17,5 +17,9 @@ public class Solution {
 
     public static class CTO implements Businessman {
 
+        @Override
+        public void workHard() {
+
+        }
     }
 }
