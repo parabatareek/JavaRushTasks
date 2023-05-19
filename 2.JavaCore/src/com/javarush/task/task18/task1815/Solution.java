@@ -8,27 +8,26 @@ import java.util.List;
 
 public class Solution {
     public class TableInterfaceWrapper implements TableInterface{
-        private String header;
         private TableInterface origin;
 
-        public TableInterfaceWrapper(){
-            super();
-            this.origin
+        public TableInterfaceWrapper(TableInterface origin){
+            this.origin = origin;
         }
 
         @Override
         public void setModel(List rows) {
             System.out.println(rows.size());
+            origin.setModel(rows);
         }
 
         @Override
         public String getHeaderText() {
-            return header.toUpperCase();
+            return origin.getHeaderText().toUpperCase();
         }
 
         @Override
         public void setHeaderText(String newHeaderText) {
-            this.header = newHeaderText;
+            origin.setHeaderText(newHeaderText);
         }
     }
 
