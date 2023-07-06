@@ -7,6 +7,9 @@ import java.io.*;
 */
 
 public class Solution implements Serializable, AutoCloseable {
+    private FileOutputStream stream;
+
+    public Solution(String fileName) throws FileNotFoundException {
     public static void main(String[] args) {
         try (FileOutputStream fileOutput = new FileOutputStream("your_file_name_2.txt");
              ObjectOutputStream outputStream = new ObjectOutputStream(fileOutput);
@@ -43,7 +46,12 @@ public class Solution implements Serializable, AutoCloseable {
 
     private void writeObject(ObjectOutputStream out) throws IOException {
         out.defaultWriteObject();
-        //out.close();
+        out.close();
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        in.close();
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
@@ -58,4 +66,8 @@ public class Solution implements Serializable, AutoCloseable {
         stream.close();
     }
 
+
+    public static void main(String[] args) {
+
+    }
 }
